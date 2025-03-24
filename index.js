@@ -1,12 +1,13 @@
 const redux = require('redux')
 const createStore = redux.createStore
 
+const bindActionCreators = redux.bindActionCreators
+
 const CAKE_ORDERED = 'CAKE_ORDERED'
 
-function orderCake(qty = 1) {
+function orderCake() {
   return {
     type: CAKE_ORDERED,
-    payload: qty
   }
 }
 
@@ -33,8 +34,13 @@ const unsubscribe = store.subscribe(() => {
   console.log('Updated State ', store.getState())
 })
 
-store.dispatch(orderCake())
-store.dispatch(orderCake())
-store.dispatch(orderCake())
+const actions = bindActionCreators(
+  { orderCake },
+  store.dispatch
+)
+
+actions.orderCake()
+actions.orderCake()
+actions.orderCake()
 
 unsubscribe()
