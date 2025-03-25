@@ -9,6 +9,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "redux": "^5.0.1"
+    "axios": "^1.8.4",
+    "redux": "^5.0.1",
+    "redux-thunk": "^3.1.0"
   }
 }
